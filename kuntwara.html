@@ -49,11 +49,41 @@
   .hero.detail-hero:hover img { transform: scale(1.05); }
 }
 
-@media (max-width: 768px) {
-    .hero.detail-hero { height: 40vh; }
-    .hero-caption { padding: 20px; }
-    .hero-caption h2 { font-size: 1.8rem; }
-    .hero-caption p { font-size: 1rem; }
+/* HERO IMAGE */
+.hero-detail {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.hero-detail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  
+    object-position: center; 
+    display: block;
+    filter: brightness(80%); 
+
+
+.hero-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 20px;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+.hero-caption h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-caption p {
+    font-size: 1.2rem;
 }
 
     .detail-container { padding-top:20px; margin-top:0; position:relative; z-index:10; background:linear-gradient(180deg,#fbfbfb 0%,#f2f6f8 100%); border-top-left-radius:var(--radius); border-top-right-radius:var(--radius); box-shadow:0 -10px 20px rgba(0,0,0,0.08); padding-left:50px; padding-right:50px; padding-bottom:50px; }
@@ -150,13 +180,13 @@
     </div>
   </header>
 
-  <div class="hero detail-hero" role="img" aria-label="Kuntwara Hero Image">
-    <img src="Kuntwara/snow1.jpg" alt="A panoramic view of Kuntwara region">
-    <div class="hero-caption">
-      <h2>Kuntwara: Mystical Heritage</h2>
-      <p>Known for its legendary connections to Mahabharata, serene landscapes, and traditional village life.</p>
-    </div>
-  </div>
+<div class="hero-detail">
+  <img src="Kuntwara/snow1.jpg" alt="Kuntwara Temple and Valley">
+  <div class="hero-caption">
+    <h2>Kuntwara Village</h2>
+    <p>Explore the historic village connected to Mahabharata legends, scenic terraced farms, and ancient temples.</p>
+  </div>
+</div>
   <section id="kuntwara" class="village-card">
   <h2>Kuntwara Village</h2>
   <p>
