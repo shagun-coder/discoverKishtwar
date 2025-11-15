@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paddar Valley (Sapphire) — Discover Kishtwar</title>
+
+  <style>
+    /* VARIABLES (Consistent with KNP) */
+    :root {
+      --primary: #0077b6; /* Main Blue */
+      --accent: #ffb703; /* Amber/Yellow Accent */
+      --nav-end: #023047; /* Dark Blue/Navy */
+      --soft-bg: #f8f9fa; /* Light Grey Background */
+      --muted: #6c757d;
+      --radius: 10px;
+      --maxw: 1200px;
+      --accent-soft: #ffc733; /* Softer accent for borders */
+    }
+    
+    /* Universal Reset & General Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f2f6f8;
+        color: #333;
+    }
+    main {
+        padding: 20px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+    h2, h3, h4 {
+        color: var(--nav-end);
+        margin-top: 20px;
+    }
+
+    /* HEADER STYLES */
+    header {
+        background: linear-gradient(90deg, var(--primary), var(--nav-end));
+        color: white;
+        padding: 15px 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand { display: flex; align-items: center; }
+    .logo-mark { font-size: 2rem; margin-right: 10px; }
+    nav a { color: white; text-decoration: none; margin-left: 20px; }
+    nav a.active { font-weight: bold; border-bottom: 2px solid var(--accent); }
+
+
+    /* HERO STYLES (FIXED) */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        height: 450px; 
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures image covers the area, fixing zoom */
+        filter: brightness(75%) contrast(90%); 
+        display: block;
+    }
+    .hero-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 40px;
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero-caption h2 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: white;
+    }
+    .hero-caption p {
+        font-size: 1.2rem;
+        margin-top: 5px;
+        font-weight: 300;
+    }
+    
+    /* DETAIL CONTAINER & BACK LINK (FIXED) */
+    .detail-container {
+        padding-top: 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(180deg,#fbfbfb 0%, #f2f6f8 100%);
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+        box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+    }
+    .back-link {
+        font-weight: 700; 
+        font-size: 1.1rem;
+        color: var(--nav-end); 
+        text-decoration: none; 
+        display: inline-block; 
+        margin-bottom: 25px;
+        padding: 8px 12px;
+        border: 1px solid rgba(2, 48, 71, 0.2);
+        border-radius: 6px;
+        background: #fff; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        position: static;
+        margin-top: 20px;
+    }
+    .back-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+    
+    /* DETAIL PAGE ENHANCEMENTS */
+    .detail-header {
+      margin-bottom: 25px;
+      padding-bottom: 5px;
+      border-bottom: 2px solid var(--accent-soft); 
+    }
+    .tagline-detail {
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-style: italic; 
+      margin-top: -10px;
+      display: block;
+      padding-bottom: 5px;
+    }
+
+    /* ACCORDION STYLES */
+    .accordion-container {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .accordion-item {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        overflow: hidden; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .accordion-title {
+        padding: 15px 20px;
+        cursor: pointer;
+        background-color: var(--soft-bg); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+    .accordion-title:hover {
+        background-color: #e9ecef;
+    }
+    .accordion-title h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--nav-end); 
+    }
+    .accordion-title::after {
+        content: '+';
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        transition: transform 0.3s ease;
+    }
+    .accordion-item.active .accordion-title::after {
+        content: '−'; 
+    }
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out; 
+        padding: 0 20px;
+    }
+    .accordion-item.active .accordion-content {
+        max-height: 3000px; /* Increased height for content safety */
+        padding: 15px 20px 25px 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+    .accordion-content p, .accordion-content h4 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    /* Spiritual List / Notable Festivals (FIXED) */
+    .spiritual-list {
+        list-style: none; 
+        padding-left: 0;
+    }
+    .spiritual-list li {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-left: 4px solid var(--accent-soft); 
+        background: #ffffff; 
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+    }
+    .spiritual-list li strong {
+        color: var(--nav-end);
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    /* Gallery Styles */
+    .gallery { margin-top: 40px; }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; 
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .gallery-item {
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--muted);
+    }
+    /* NEW: Horizontal Layout for Village Images */
+    .village-gallery {
+        display: flex;
+        justify-content: space-around; /* Spreads the two items out */
+        gap: 20px; /* Space between images */
+        margin: 25px auto; /* Centering the gallery */
+        flex-wrap: wrap; 
+        max-width: 100%; /* Use full width of container */
+    }
+
+    .village-gallery .inline-image {
+        /* Set to 48% to leave a small gap in the middle */
+        max-width: 48%; 
+        width: 100%;
+        margin: 0; /* Remove vertical margin to keep them aligned */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    }
+    
+    .village-gallery .inline-image img {
+        height: 250px; /* Fixed height for better vistas */
+        object-fit: cover;
+    }
+    /* NEW: Horizontal Layout for Culture Images */
+    .culture-gallery {
+        display: flex;
+        /* changed to space-around for 3 items to look balanced */
+        justify-content: space-around; 
+        gap: 10px; 
+        margin: 25px auto; /* Centers the whole gallery */
+        flex-wrap: wrap; 
+    }
+
+    .culture-gallery .inline-image {
+        /* Override previous 90% width to fit 3 side-by-side */
+        /* max-width is now set inline to 30% for 3 items */
+        width: 100%;
+        margin: 0; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+    }
+    
+    .culture-gallery .inline-image img {
+        height: 180px; /* Fixed height for uniformity in the gallery */
+        object-fit: cover;
+    }
+    
+    /* FOOTER STYLE */
+    footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-mark"></div>
+        <div>
+          <h1>Discover Kishtwar</h1>
+          <small>Land of Saffron • Sapphire • Shrines</small>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="history.html">History & Culture</a>
+        <a href="places.html" class="active">Places & Villages</a>
+         <a href="gallery.html">Gallery & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero detail-hero" role="img" aria-label="Paddar Valley Hero Image">
+    <img src="paddar images/hero.jpg" alt="Trekker looking into the vast green valleys of Paddar.">
+    <div class="hero-caption">
+      <h2>Paddar Valley: The Land of Sapphire and Ancient Heritage</h2>
+      <p>A remote sub-district in the Great Himalayas, famous for its unique culture and precious gems.</p>
+    </div>
+  </div>
+
+<main class="detail-container">
+  <!-- Hero / Back Link -->
+  <a href="places.html" class="back-link">← Back to Places & Villages</a>
+  
+  <p style="font-size: 1.15rem; font-style: italic; color: #555; margin-bottom: 30px;">
+    Paddar, renowned globally for the Kashmir Sapphire, is a high-altitude cultural melting pot, historically influenced by Kashmir, Chamba, and Ladakh.
+  </p>
+
+
+  </div> <section class="gallery"> <h3>Photo Gallery: Vistas of Paddar Valley 📸</h3> <p>Explore more breathtaking scenery and unique features of this remote Himalayan valley.</p> <div class="photo-grid"> <div class="gallery-item"> <img src="paddar images/machailTemple.jpg" alt="Machail Mata Yatra procession"> <small>Machail Temple</small> </div> <div class="gallery-item"> <img src="paddar images/sapphire.jpg" alt="High altitude meadow and grazing land in Paddar"> <small>Sapphire</small> </div> <div class="gallery-item"> <img src="paddar images/village.jpg" alt="Chenab river flowing through the Paddar valley"> <small>village in paddar</small> </div> <div class="gallery-item"> <img src="paddar images/woodenArchi.jpg" alt="Traditional wooden house architecture in Paddar village"> <small>Traditional Architecture</small> </div> </div> </section>
+
+  <div class="accordion-container">
+  
+    <!-- History and Governance -->
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>History and Governance 📜</h3></div>
+      <div class="accordion-content">
+        <p>
+          It is unclear when humans first arrived in Paddar. Some theories suggest it was first settled in the 8th century by people from Kashmir, and the northwestern region of the subcontinent (Kpk or Eastern afganistan).[3] They could be the descendants of ancient White Huns or Scythians. The area is inhabited mostly by the Thakurs and Brahmins .[3] There is also an interesting thing to know many villages in the region have name that include Kashmiri surnames. E.g Bhatwas- literally translating to the Place or Abode of Bhats Ganjuwas- the Abode of Ganjusy people from Kashmir, and the northwestern region of the subcontinent (Kpk or Eastern Afghanistan). The area is inhabited mostly by the <strong>Thakurs and Brahmins.</strong>
+        </p>
+        <h4>Rule and Annexation</h4>
+        <p>
+          Paddar was under the rule of the Kashmiri Empire for centuries. Various manuscripts written in Sharada script have been found in the region. But most of the period of the history it remained under self rule because it was a difficult region to be accessible. At local level, the area were headed by local Ranas. Each Rana usually controlled one to three villages, often fighting with other Ranas for control of land. By the mid-17th century, Rana Sheetal Singh controlled the valley, being headquartered at Leondi village. Sheetal Singh was defeated in an ambush by the Raja of Chamba and his forces, and Paddar fell into the hands of Chamba rulers. After Chatur Singh's reign, the Rajas of Chamba exercised their sovereignty over Padder for six generations. The area enjoyed peace and prosperity thereafter. In the spring of 1836 A.D., Zorawar Singh took up arms against the Chamba forces and won, causing Paddar to be annexed to Kishtwar. Due to its history under Chamaba rule, Paddar has a strong relationship with Himachal Pradesh in terms of culture and history.
+        </p>
+        <h4>Early Religion</h4>
+        <p>
+          The residents of ancient Paddar were primarily serpent worshipers. However, they observed other Hindu rites and rituals as well. Besides Hindus, Muslims and Buddhists also settled in the valley. The Buddhists were spread in the upper reaches of the Machail, Kaban, and Gandhari valleys and in the town of Gulabgarh.The first Muslims came to Paddar during the period of the Raja Shantar Kantar from Chamba. The descendants of those Muslims still live in Atholi and Kijai.
+        </p>
+      </div>
+    </div>
+
+    <!-- Culture -->
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Culture 👥</h3></div>
+      <div class="accordion-content">
+        <p><strong>Paddar has an extensive cultural history.</strong></p>
+        <div class="inline-image" style="max-width: 90%;">
+          <img src="paddar images/nagaras.jpg" alt="dhols nagaras and flute">
+          <small>Traditional Musical Instruments (Dhols & Nagaras)</small>
+        </div>
+        <p>
+          Majority of the Padderi belong to the Hindu community but their traditions and rituals are very different from the mainstream Hinduism. They follow a unique Shiva-Shakti traditions which is much similar to the Kashmir Shavism. They worship the nature and its sacred elements e.g Zehryun devta or Megh raj who is the god of Clouds and snow (Lord Indra), Jwala mata, the god of fire, warmth and prosperity. They worship nagas i.e snake gods also. Temples of different Nag devtas or Serpent Gods are still visible and are adorned with wood carvings of snakes of all kinds. Goddesses Parvati i.e Shakti is worshipped in different forms such as Kali, Chandi , Sheetla devi etc. Different festivals are organised for their local dietes on which customary dances and rituals are performed. They use dhoons and beinch(flute) to play ragad of devi-devtas. In every household 3 important ceremonies are held for every individual i.e Bishtyan ( Yagyopavit) irrespective of their castes, Byah (Marriage) and the last rites.
+        </p>
+        <h3>Music and dance</h3>
+        <p>
+          Due to the isolation from the rest of the world the region has special and unique dance forms that developed gradually by the phase of time. The local songs are called gheet. A unique form of singing in which the words are sung slowly and generally used to describe an event is called Sugil. The most famous dance form of the region is kharzath. It is similar to the Kud dance of Jammu region which is performed on special occasions and in temple. Gurhey is a dance form performed by the women. They sing the songs holding each others' hand or should and move slowly by matching footsteps . Is is similar to the rauf dance of Kashmir.
+        </p>
+        <p>
+          Women wear a woolen shawl called chador and special caps called Zuji. Men wear a loose tunic called <strong>kamïr (or kamri) with a woolen belt called mazerad.</strong>
+        </p>
+        <h4>clothing</h4>
+        <p>
+          In order to adapt to the cold and harsh climate of the region the residents wear wollen garments all round the year. The women wear shalwar kameez inside, and cover it with a light but heat insulating wollen shawl called chador which is draped in a unique manner. Women wear special caps called Zuji on their heads. And this Zuji resemble the caps worn by kalash tribe in Chitral areas. This cap must be having a unique historic significance which is still unknown to the world. Women used to wear heavy silver jewellery which included head jwellery, big ear rings and nose pins, and heavy silver necklace in older times. Men wear a loose long kurta like tunic called kamïr or kamri with a chudidar lower which is tight from bottom but loose above the knees. They often wear a belt piece of wool called mazerad.
+        </p>
+        
+        <!-- Culture Gallery -->
+        <div class="culture-gallery" style="justify-content: space-around;">
+          <div class="inline-image" style="max-width: 30%;">
+            <img src="paddar images/dress1.jpg" alt=" Traditional attire of Kishtwar-Padder-Pangi">
+            <small>Kishtwar-Padder Attire</small>
+          </div>
+          <div class="inline-image" style="max-width: 30%;">
+            <img src="paddar images/dress2.jpg" alt=" Traditional attire of Padder-Pangi region">
+            <small>Padder-Pangi Region Attire</small>
+          </div>
+          <div class="inline-image" style="max-width: 30%;">
+            <img src="paddar images/Attire.jpg" alt=" Traditional attire of Paddar Valley">
+            <small>Paddar Valley Attire</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demography -->
+    <div class="accordion-item">
+      <div class="accordion-title"><h3> Demography 🗺</h3></div>
+      <div class="accordion-content">
+        <h4>Religion in Paddar (2011)</h4>
+        <ul>
+          <li>Hinduism (83.6%)</li>
+          <li>Buddhism (9.50%)</li>
+          <li>Islam (6.80%)</li>
+          <li>Others (0.10%)</li>
+        </ul>
+        <p>
+          Hinduism is the largest religion in Paddar and is followed by around 83.63% of the population. Other significant religions are Buddhism (9.46%) and Islam (6.84%).[1]
+        </p>
+        <h4>Languages of Paddar (2011)[4]</h4>
+        <ul>
+          <li>Padri (79.6%)</li>
+          <li>Ladakhi (8.90%)</li>
+          <li>Kashmiri (5.90%)</li>
+          <li>Others (5.60%)</li>
+        </ul>
+        <p>
+          The majority of the population (nearly 80%) speaks Padri as a first language. Pangwali and Kishtwari dialect are also spoken the valley. The Hindus in the valley speak the languages listed above. The Buddhist community speaks Bhoti. The Buddhist population of the valley is ethically close to Lahoul, Himachal Pradesh and Ladakh. The Muslim population of the valley primarily speaks Kashmiri.
+        </p>
+      </div>
+    </div>
+
+    <!-- Festivals -->
+    <div class="accordion-item">
+      <div class="accordion-title"><h3> Festivals 🎉</h3></div>
+      <div class="accordion-content">
+        <h4>Music and Dance</h4>
+        <p>Local songs are called gheet. Slow singing is called <em>Sugil</em>. The famous dance forms are <strong>Kharzath</strong> (similar to Kud dance) and Gurhey (women's dance, similar to Rauf dance).</p>
+        <h4>Some Notable Festivals of Paddar</h4>
+        <ul class="spiritual-list">
+          <li><strong>Shivratri (Sheraeth):</strong> Shivratri, locally known as Sheraeth, is the most famous and significant festival of the Padder Valley. It is celebrated with great enthusiasm and devotion, involving numerous rituals, beliefs, and deep spirituality. The festival lasts for four days. The first two days are called Rekh and Kandey. According to local belief, these are the days when demons, spirits, and witches celebrate the festival. In the morning, after thoroughly cleaning and purifying their homes, people cover their doors and windows with thorns and leaves. In the evening, when no one remains outside, a rekha (white line) is drawn across the main entrance to prevent any negative energy from entering the house. People also draw portraits of demons on their rooftops and stay indoors all night, praying and playing kaudi, as it is believed that Lord Shiva and Goddess Parvati loved this game. The elders of the family narrate stories of gods, demons, and Shivratri traditions to the younger generation. The third day, known as Narath, is marked by sacrifices made in households. Special meals are prepared for the evening, and cooking mutton is considered an important custom. The final day, called Vrath, is observed with fasting by the men of the family. Various pujas and rituals are performed, and offerings such as walnuts, dry fruits, and kheer are distributed as prasad. Snowfall on this day is regarded as an auspicious sign, symbolizing a prosperous harvest for the year ahead.</li>
+          
+          <li><strong>Chandi Yatra:</strong> Chandi Yatra is an annual pilgrimage to a shrine dedicated to the goddess Durga, popularly known as Machail Mata, located in the village of Machel. Thousands of people, mainly from the Jammu region, visit the shrine every August. It takes approximately ten hours to travel from Jammu to the base camp Gulabgarh by road, after which a 32 km foot journey begins. It usually takes two days to reach the shrine on foot. There are many villages on the way where one can stay for the night. The chaddi takes three days to reach Machail. Many people organize roadside 'langars' (free food points) on the way to the Gulabgarh. The government of Jammu and Kashmir also arranges basic amenities for the pilgrims.</li>
+          
+          <li><strong>Kanchaeth (Gauri Tritiya):</strong> Gauri tritya which is locally known as Kanchaeth, is a Hindu festival primarily celebrated in the Chenab valley region of Jammu and Kashmir, particularly in Doda, Kishtwar, and Ramban districts. It commemorates the marriage of Lord Shiva and Goddess Parvati. Women observe a day-long fast, pray for the long life and well-being of their husbands, and break their fast with non-vegetarian delicacies, a unique aspect of this festival.</li>
+          
+          <li><strong>Losar:</strong> Losar is the Tibetan New Year, which is celebrated mostly by the Buddhist communities. Households observe Losar together. People drink the local brew Chhaang and celebrate for weeks. Losar generally occurs in the months of January and February.</li>
+          
+          <li><strong>Cheti:</strong>Cheti is celebrated in Gandhari, Pallali and Machail amidst heavy snowfall. It is celebrated with great pomp. People take greetings to each other's homes. This festival is an opportunity for the people who are locked in the snow to meet each other to celebrate the winters.
+            <img src="paddar images/cheti-festival.jpg" alt="Cheti Festival in Paddar Valley" style="max-width:100%; height:auto; border-radius: 8px; margin-top: 10px; margin-bottom: 10px;">
+            <br>
+            <p>Cheti Festival in Paddar Valley</p>
+          </li>
+          
+          <li><strong>Zaagra / Awaans:</strong>Zaagra is a celebration where a huge fire is lit in front of a temple of god/goddess during the night and the chelas (disciples), along with the other locals, dance around the fire to the music of dhols and flutes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Villages -->
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Villages 🌆</h3></div>
+      <div class="accordion-content">
+        <ul class="spiritual-list" style="list-style-type: none; padding-left: 0;">
+          <li><strong>Karthai:</strong> Karthai is among the most accessible villages in Paddar. The village lies in green paddy fields, with the river Chenab on one side and dense forest on the other. It is 58 km from the district capital and is a cultural centre.</li>
+          <li><strong>Gulabgarh:</strong> Gulabgarh is the sub-divisional headquarter and commercial center of Paddar and a hub for the area's economic activities. It has a sizeable market area and a TRC (Tourist Reception Area). Transport services run from here to Kishtwar town and Pangi. It also hosts local cricket tournaments. Besides for its economy and recreational opportunities, Gulabgarh also hosts many government offices, J&K Bank,[5] a police station and rest houses.</li>
+          <li><strong>Atholi:</strong> Atholi is the administrative capital. It contains many sub-district level offices including the Atholi Tehsildar's office, Munsiff Camp Atholi, the Paddar Forest Range Office, the Paddar ZEO office, the Atholi Tehsil Library, the Atholi fire station and post office, and the Paddar sub-district hospital. It is also known for a scenic spot called Pathaal and a water mill (known locally as Ghiraat) run by a waterfall in the village.,[6] AEE office Jal Shakti Vibhaag, Higher Secondary School, Girl's High School and Degree college are other significant establishments in the town.</li>
+          <li><strong>Sohal:</strong> Sohal is used by off-roaders and as a base camp when travelling to Chittoo, Kabban and Ongayee villages. The Kabban village is located along the Sohal/Kabban Nala. Then Ungaie Village along the Ungaie Nala. The Chenab river runs through the villages of Tiyari, Chitto, and Ishtyari.</li>
+          <li><strong>Gandhari:</strong> Gandhari is visited by mountaineers, hikers, and climbers, and is known for green pastures. Its first village, Bhatwas, is about 30 km from Gulabgarh, with 25 km accessible with motor vehicles. The rest can only be travelled by foot. The trek route from here continues to Machail in Paddar, Zanskar in Ladakh, and Pangi.[6] As per Sanskrit language, Gandhari means "girl from Gandhara", and is a prominent character in the Mahabharata, an Indian epic. Gandhari was a princess in Gandhara and the wife of Dhritrashtra, the blind king of Hastinapura. She was the mother of a hundred sons, the Kauravas.
+            <p>Maa Chandi's holy shrine, Shiva temple, Nag temple, and Buddhist Gompa Monastery are also located in the village. It is a popular spot for picnicking, touring, and adventuring, and is located approximately 9000 feet above sea level.</p>
+          </li>
+          <li><strong>Haloti and Hangoo:</strong> Haloti and Hangoo are the nearest revenue villages to the Machail Mata shrine. The majority of the residents in these two villages are Buddhists. This villages are known for yaks, which are found only in this area after Ladakh. These domesticated yaks are raised to provide milk and to plough fields for agriculture. Many Buddhist monasteries are also found here.[6]</li>
+          <li><strong>Machail:</strong> Machail is known for the Chandi Mata Temple and the annual Machail Yatra festival, during which lakhs of pilgrims visit the temple. Machail has recently been granted the status of tehsil.</li>
+          <li><strong>Tatta Pani:</strong> Tatta Pani is known for its natural Hot spring
+        </div>
+    </div>
+</div>
+        <footer> © 2025 — Discover Kishtwar · Designed with ❤ by Shagun Padha </footer>
+<script>
+  const accordionTitles = document.querySelectorAll('.accordion-title');
+  accordionTitles.forEach(title => {
+    title.addEventListener('click', () => {
+      const content = title.nextElementSibling;
+      content.classList.toggle('open');
+      if(content.classList.contains('open')){
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = '0';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

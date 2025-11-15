@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History & Culture – Kishtwar District</title>
+  <style>
+    :root {
+      --primary: #0077b6;
+      --accent: #ffb703;
+      --nav-end: #023047;
+      --soft-bg: #f8f9fa;
+      --radius: 10px;
+      --maxw: 1200px;
+      --era1: #ffdd99; 
+      --era2: #99ccff; 
+      --era3: #ff9999;
+      --era4: #ccffcc;
+      --era5: #d9b3ff;
+    }
+
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {font-family: Arial, sans-serif; line-height:1.6; background:#f2f6f8; color:#333;}
+    main, section {max-width:var(--maxw); margin:0 auto; padding:20px;}
+    h1,h2,h3,h4 {color:var(--nav-end); margin-top:20px;}
+    p {margin-bottom:15px;}
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--nav-end));
+      color:white; padding:20px 50px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {font-size:1.8rem;}
+    nav a {color:white; text-decoration:none; margin-left:20px; font-weight:500;}
+    nav a.active {border-bottom:2px solid var(--accent); padding-bottom:3px;}
+
+    .page-image {width:100%; border-radius:var(--radius); box-shadow:0 4px 12px rgba(0,0,0,0.15); margin:15px 0;}
+    .stone-section {display:flex; flex-wrap:wrap; gap:15px; margin:20px 0; background:#fff; padding:15px; border-radius:var(--radius); box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+    .stone-section img {flex:1 1 300px; max-height:200px; object-fit:cover; border-radius:var(--radius); opacity:0; transform:translateY(50px); transition:transform 0.6s ease-out, opacity 0.6s ease-out;}
+    .stone-section img.show {opacity:1; transform:translateY(0);}
+    .stone-text {flex:2 1 400px;}
+
+    iframe {border:0; border-radius:var(--radius); box-shadow:0 4px 10px rgba(0,0,0,0.2); margin-top:15px;}
+    footer {text-align:center; padding:20px; color:#425055; font-size:0.95rem; margin-top:20px; background:#fff;}
+    h2 {border-bottom:2px solid var(--accent); padding-bottom:5px; margin-bottom:15px;}
+
+    /* Timeline Styles */
+    .timeline {
+      display: flex;
+      overflow-x: auto; /* horizontal scroll on mobile */
+      padding: 20px 0;
+      margin-bottom: 30px;
+      scroll-behavior: smooth;
+      gap: 20px;
+    }
+    .timeline::-webkit-scrollbar {height: 8px;}
+    .timeline::-webkit-scrollbar-thumb {background: var(--accent); border-radius: 4px;}
+
+    .timeline-item {
+      flex: 0 0 auto;
+      border-radius: var(--radius);
+      padding: 15px 20px;
+      min-width: 200px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+      opacity: 0;
+      transform: translateY(50px);
+      color: var(--nav-end);
+      font-weight: 500;
+    }
+    .timeline-item.show {opacity:1; transform:translateY(0);}
+    .timeline-item:hover {transform: translateY(-5px);}
+
+    /* Era colors */
+    .era1 {background: var(--era1);}
+    .era2 {background: var(--era2);}
+    .era3 {background: var(--era3);}
+    .era4 {background: var(--era4);}
+    .era5 {background: var(--era5);}
+
+    .timeline-item h4 {margin-bottom: 5px; display:flex; align-items:center; justify-content:center; gap:5px;}
+    .timeline-item h4 span.icon {font-size:1.3rem;}
+    .timeline-item p {font-size:0.85rem; color:#555; margin-top:5px;}
+
+    @media (max-width: 600px) {
+      .timeline-item h4 {font-size: 0.9rem;}
+      .timeline-item p {font-size: 0.75rem;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Discover Kishtwar – History & Culture</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="history.html" class="active">History & Culture</a>
+    <a href="places.html">Places & Villages</a>
+    <a href="gallery.html">Gallery & Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- Timeline -->
+  <h2>📅 Timeline of Kishtwar History</h2>
+  <div class="timeline">
+    <div class="timeline-item era1">
+      <h4><span class="icon">👑</span> 5th-10th Century</h4>
+      <p>Kahan Pal establishes rule in Kishtwar.</p>
+    </div>
+    <div class="timeline-item era2">
+      <h4><span class="icon">🏰</span> Medieval Period</h4>
+      <p>Local chieftains rule, temples and forts built.</p>
+    </div>
+    <div class="timeline-item era3">
+      <h4><span class="icon">⚔️</span> 1821 AD</h4>
+      <p>Maharaja Gulab Singh annexes Kishtwar into Dogra dynasty.</p>
+    </div>
+    <div class="timeline-item era4">
+      <h4><span class="icon">📖</span> 20th Century</h4>
+      <p>Cultural and administrative development continues.</p>
+    </div>
+    <div class="timeline-item era5">
+      <h4><span class="icon">🏞️</span> 2007</h4>
+      <p>Kishtwar becomes a separate district.</p>
+    </div>
+  </div>
+
+  <!-- Historical Background -->
+  <h2>📜 Historical Background</h2>
+  <p>
+    Kishtwar is renowned for saffron, sapphire, and shrines.  
+    It has seen local kings, chieftains, and Dogra rule.  
+    The district includes mountains, fertile valleys, and important pilgrimage sites.
+  </p>
+
+  <!-- First Historical King -->
+  <h2>👑 Kahan Pal – The First Historical King</h2>
+  <p>
+    Kahan Pal ruled Kishtwar between 5th-10th century A.D.  
+    He came from Gour Bengal, established his rule, and built his residence at Tund.  
+    Descendants adopted surnames like Sen, Dev, and Singh.
+  </p>
+  <img src="images/kahan-pal.jpg" alt="Kahan Pal, First Historical King of Kishtwar" class="page-image">
+
+  <!-- Stone Carving & Heritage -->
+  <h2>🪨 Stone Carving & Cultural Heritage</h2>
+  <p>
+    Kishtwar is famous for its ancient stone carving depicting deities, historical events, and traditional motifs.  
+    This preserves the region’s rich artistic and religious heritage.
+  </p>
+  <div class="stone-section">
+    <img src="stonecraving.jpg" alt="Stone Carving Kishtwar">
+
+    <div class="stone-text">
+      <h3>Stone Carving of Kishtwar</h3>
+      <p>This ancient carving tells the story of Kishtwar’s heritage and culture.</p>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <h2>📍 Location Map</h2>
+  <p>Explore Kishtwar district:</p>
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d329896.9727439368!2d74.76885878344596!3d33.32690523641668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ce6d7c0b7e4b5%3A0x88b282f0aa8c9c70!2sKishtwar%2C%20Jammu%20and%20Kashmir!5e0!3m2!1sen!2sin!4v1730837460000!5m2!1sen!2sin" 
+    width="100%" height="400" allowfullscreen="" loading="lazy">
+  </iframe>
+
+  
+</main>
+
+<footer>
+  <p>© 2025 Kishtwar District | Website designed with ❤ by Shagun Padha</p>
+</footer>
+
+<!-- JavaScript for scroll animation -->
+<script>
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  const stoneImage = document.querySelector('.stone-section img');
+
+  function revealOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    timelineItems.forEach(item => {
+      const itemTop = item.getBoundingClientRect().top;
+      if(itemTop < triggerBottom) item.classList.add('show');
+    });
+
+    const imgTop = stoneImage.getBoundingClientRect().top;
+    if(imgTop < triggerBottom) stoneImage.classList.add('show');
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+</script>
+
+</body>
+</html>

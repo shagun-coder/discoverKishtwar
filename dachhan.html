@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dachhan — Discover Kishtwar</title>
+
+  <style>
+    :root {
+    --primary: #0077b6;       /* Main Blue */
+    --accent: #ffb703;        /* Amber Accent */
+    --nav-end: #023047;       /* Dark Blue / Navy */
+    --soft-bg: #f8f9fa;       /* Light Grey Background */
+    --radius: 10px;            /* Border radius for elements */
+    --maxw: 1200px;            /* Maximum container width */
+}
+
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f2f6f8;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    max-width: var(--maxw);
+    margin: 0 auto;
+}
+
+h2, h3, h4 {
+    color: var(--nav-end);
+    margin-top: 20px;
+}
+
+/* Header styles */
+header {
+    background: linear-gradient(90deg, var(--primary), var(--nav-end));
+    color: white;
+    padding: 15px 50px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-mark {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent);
+}
+
+/* Hero section */
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%) contrast(90%);
+    display: block;
+}
+
+.hero-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.hero-caption h2 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.hero-caption p {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    font-weight: 300;
+}
+
+/* Detail container */
+.detail-container {
+    padding-top: 20px;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+    background: linear-gradient(180deg, #fbfbfb 0%, #f2f6f8 100%);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+}
+
+/* Back link */
+.back-link {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--nav-end);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 8px 12px;
+    border: 1px solid rgba(2,48,71,0.2);
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-top: 20px;
+}
+
+.back-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Accordion container */
+.accordion-container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.accordion-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.accordion-title {
+    padding: 15px 20px;
+    cursor: pointer;
+    background-color: var(--soft-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.accordion-title:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-title h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--nav-end);
+}
+
+.accordion-title::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-title::after {
+    content: '−';
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding: 0 20px;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 3000px;
+    padding: 15px 20px 25px 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.accordion-content p,
+.accordion-content h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+/* Inline gallery */
+.gallery-inline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.gallery-inline-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.gallery-inline-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-inline-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-inline-caption {
+    padding: 8px;
+    font-size: 0.85rem;
+    color: var(--nav-end);
+    text-align: center;
+    background-color: var(--soft-bg);
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    max-width: var(--maxw);
+    margin: 36px auto 20px;
+    padding: 18px;
+    color: #425055;
+    font-size: 0.95rem;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo-mark"></div>
+      <div>
+        <h1>Discover Kishtwar</h1>
+        <small>Land of Saffron • Sapphire • Shrines</small>
+      </div>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="history.html">History & Culture</a>
+      <a href="places.html" class="active">Places & Villages</a>
+       <a href="gallery.html">Gallery & Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="Dachhan/Dachen.jpg" alt="Dachhan Valley panorama">
+  <div class="hero-caption">
+    <h2>Dachhan Valley: Gateway to Machail</h2>
+    <p>A scenic valley known for its lush meadows, rivers, and as a connecting hub to Machail and Marwah.</p>
+  </div>
+</div>
+
+<main class="detail-container">
+  <a href="places.html" class="back-link">← Back to Places & Villages</a>
+
+  <p style="font-size:1.25rem;font-style:italic;color:var(--nav-end);margin-bottom:30px;font-weight:500;">
+    Dachhan is a central valley connecting remote Kishtwar regions. Rich in culture, forests, and agriculture, it acts as a base for treks and pilgrimages.
+  </p>
+
+  <h3 style="color:var(--primary); margin-top:10px;margin-bottom:10px;border-bottom:2px solid var(--accent); padding-bottom:5px;">
+    📸 Glimpses of Dachhan Valley
+  </h3>
+
+  <div class="gallery-inline-grid">
+    <div class="gallery-inline-item">
+      <img src="Dachhan/riverD.jpg" alt="Dachhan River">
+      <div class="gallery-inline-caption">Rivers & Streams</div>
+    </div>
+    <div class="gallery-inline-item">
+      <img src="Dachhan/forest.jpg" alt="Dachhan Forests">
+      <div class="gallery-inline-caption">Dense Forests</div>
+    </div>
+    <div class="gallery-inline-item">
+      <img src="Dachhan/villageD.jpg" alt="Dachhan Village">
+      <div class="gallery-inline-caption">Traditional Villages</div>
+    </div>
+    <div class="gallery-inline-item">
+      <img src="Dachhan/meadowD.jpg" alt="Dachhan Meadow">
+      <div class="gallery-inline-caption">Lush Meadows</div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--nav-end); margin-top:40px; margin-bottom:20px;">
+    Explore Dachhan Details
+  </h3>
+
+  <div class="accordion-container">
+
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Geography & Nature 🌲</h3></div>
+      <div class="accordion-content">
+        <p>Dachhan sits at a moderate elevation (~2,200 meters) with rivers, fertile fields, and surrounding forests. It serves as a natural corridor between Machail and Marwah.</p>
+        <h4>Flora & Fauna</h4>
+        <ul>
+          <li>Forests with pine, deodar, oak.</li>
+          <li>Wildlife like Himalayan monal, foxes, and migratory birds.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Culture & Lifestyle 🏡</h3></div>
+      <div class="accordion-content">
+        <p>Residents mainly practice agriculture and pastoralism. Traditional festivals, folk music, and craftsmanship preserve Dachhan's Himalayan culture.</p>
+        <h4>Traditions</h4>
+        <ul>
+          <li>Community farming.</li>
+          <li>Local festivals and fairs.</li>
+          <li>Handmade wool clothing and crafts.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>History & Significance 🏛</h3></div>
+      <div class="accordion-content">
+        <p>Dachhan has historically been a trade and travel route connecting remote Kishtwar regions. It has served pilgrims heading to Machail Mata temple for centuries.</p>
+        <h4>Key Highlights</h4>
+        <ul>
+          <li>Central hub for Machail Yatra.</li>
+          <li>Rich local folklore and oral history.</li>
+          <li>Important stopover for trekkers and pilgrims.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Accessibility & Travel 🛣</h3></div>
+      <div class="accordion-content">
+        <p>Accessible by road from Kishtwar. Acts as a base for treks to Machail, Marwah, and Sinthan. Local guides are recommended for mountain routes.</p>
+        <h4>Travel Tips</h4>
+        <ul>
+          <li>Best time: May–October.</li>
+          <li>Roads can be rough; avoid winter travel.</li>
+          <li>Limited accommodations available locally.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-title"><h3>Climate & Best Time 🌤</h3></div>
+      <div class="accordion-content">
+        <p>Summers are pleasant and ideal for travel. Winters bring heavy snowfall, often isolating the valley.</p>
+        <h4>Season Overview</h4>
+        <ul>
+          <li>Summer (May–Sep): 12–22°C, ideal for travel and sightseeing.</li>
+          <li>Winter (Nov–Mar): -5 to -12°C, snow-covered roads.</li>
+          <li>Autumn (Oct): Harvest season, moderate weather, scenic views.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+ © 2025 — Discover Kishtwar · Designed with ❤ by Shagun Padha
+  
+</footer>
+
+<script>
+  document.querySelectorAll('.accordion-title').forEach(title=>{
+    title.addEventListener('click',()=>{
+      const item=title.parentNode;
+      item.classList.toggle('active');
+      document.querySelectorAll('.accordion-item.active').forEach(other=>{
+        if(other!==item) other.classList.remove('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
