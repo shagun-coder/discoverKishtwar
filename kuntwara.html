@@ -71,11 +71,42 @@
     .accordion-item.active .accordion-content { max-height:3000px; padding:15px 20px 25px 20px; border-top:1px solid #e0e0e0; }
     .accordion-content p, .accordion-content h4 { margin-top:0; margin-bottom:15px; }
 
-    .gallery-inline-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:15px; margin-top:15px; margin-bottom:10px; border-top:1px dashed #ccc; border-bottom:1px dashed #ccc; padding-top:15px; padding-bottom:15px;}
-    .gallery-inline-item { background-color:#ffffff; border:1px solid #ddd; border-radius:var(--radius); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.15); transition:transform 0.3s; }
-    .gallery-inline-item:hover { transform:scale(1.03); }
-    .gallery-inline-item img { width:100%; height:120px; object-fit:cover; display:block; }
+   .gallery-inline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
 
+.gallery-inline-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.gallery-inline-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-inline-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-inline-caption {
+    padding: 8px;
+    font-size: 0.85rem;
+    color: #023047; /* navy color */
+    text-align: center;
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
    .sculpture-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -94,8 +125,6 @@
     object-fit: contain;
 }
 
-.sculpture-item:hover { transform: scale(1.03); }
-.sculpture-item img { width: 100%; height: 140px; object-fit: cover; display: block; }
 
     footer{max-width:var(
       --maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center;}
@@ -127,6 +156,32 @@
       <h2>Kuntwara: Mystical Heritage</h2>
       <p>Known for its legendary connections to Mahabharata, serene landscapes, and traditional village life.</p>
     </div>
+  </div>
+  <section id="kuntwara" class="village-card">
+  <h2>Kuntwara Village</h2>
+  <p>
+    Kuntwara is a historic village connected to Mahabharata legends. The valley is known for its terraced farming, pristine snow views, and ancient temples. Visitors can explore traditional architecture and stone sculptures that narrate local history.
+  </p>
+
+  <!-- Temple Gallery -->
+  <h3>Temples</h3>
+  <div class="gallery-inline-grid">
+      <div class="gallery-inline-item">
+          <img src="Kuntwara/kuntTemp1.jpg" alt="Kuntwara Temple 1">
+          <div class="gallery-inline-caption">Temple 1</div>
+      </div>
+      <div class="gallery-inline-item">
+          <img src="Kuntwara/kuntTemp2.jpg" alt="Kuntwara Temple 2">
+          <div class="gallery-inline-caption">Temple 2</div>
+      </div>
+      <div class="gallery-inline-item">
+          <img src="Kuntwara/kuntTemp3.jpg" alt="Kuntwara Temple 3">
+          <div class="gallery-inline-caption">Temple 3</div>
+      </div>
+      <div class="gallery-inline-item">
+          <img src="Kuntwara/mandir.jpg" alt="Kuntwara Mandir">
+          <div class="gallery-inline-caption">Main Mandir</div>
+      </div>
   </div>
 
   <main class="detail-container">
@@ -206,23 +261,7 @@
     </div>
 
     <h3 style="color: var(--primary); margin-top: 40px; margin-bottom: 10px; border-bottom:2px solid var(--accent); padding-bottom:5px;">
-      🛕 Temple Gallery
-    </h3>
-
-    <div class="gallery-inline-grid">
-      <div class="gallery-inline-item">
-        <img src="Kuntwara/mandir.jpg" alt="Temple 1">
-      </div>
-      <div class="gallery-inline-item">
-        <img src="Kuntwara/KuntTemp2.jpg" alt="Temple 2">
-      </div>
-      <div class="gallery-inline-item">
-        <img src="Kuntwara/KuntTemp1.jpg" alt="Temple 3">
-      </div>
-      <div class="gallery-inline-item">
-        <img src="Kuntwara/KuntTemp3.jpg" alt="Temple 4">
-      </div>
-    </div>
+     
 
   </main>
 
