@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Warveen Valley — Discover Kishtwar</title>
   <link rel="stylesheet" href="responsive.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
 
   <style>
-    /* VARIABLES (Consistent with KNP) */
+  
     :root {
-      --primary: #0077b6; /* Main Blue */
-      --accent: #ffb703; /* Amber/Yellow Accent */
-      --nav-end: #023047; /* Dark Blue/Navy */
-      --soft-bg: #f8f9fa; /* Light Grey Background */
+      --primary: #0077b6; 
+      --accent: #ffb703; 
+      --nav-end: #023047; 
+      --soft-bg: #f8f9fa; 
       --muted: #6c757d;
       --radius: 10px;
       --maxw: 1200px;
-      --accent-soft: #ffc733; /* Softer accent for borders */
+      --accent-soft: #ffc733; 
     }
     
-    /* Universal Reset & General Styles */
+    
     * {
         margin: 0;
         padding: 0;
@@ -94,7 +102,6 @@
         font-weight: 300;
     }
     
-    /* DETAIL CONTAINER & BACK LINK */
     .detail-container {
         padding-top: 20px;
         margin-top: 0;
@@ -128,7 +135,7 @@
         border-color: var(--accent);
     }
 
-    /* ACCORDION STYLES */
+    
     .accordion-container {
         width: 100%;
         margin-top: 30px;
@@ -184,7 +191,7 @@
         margin-bottom: 15px;
     }
     
-    /* NEW: CSS for the Inline Gallery at the top */
+   
     .gallery-inline-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
@@ -222,7 +229,7 @@
         font-weight: 600;
     }
     
-    /* FOOTER STYLE */
+
     footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
   </style>
 </head>
@@ -363,13 +370,13 @@
   </footer>
 
   <script>
-    // JavaScript for Accordion Functionality
+    
     document.querySelectorAll('.accordion-title').forEach(title => {
       title.addEventListener('click', () => {
         const item = title.parentNode;
         item.classList.toggle('active');
         
-        // Close other open items
+        
         document.querySelectorAll('.accordion-item.active').forEach(otherItem => {
           if (otherItem !== item) {
             otherItem.classList.remove('active');
