@@ -6,20 +6,28 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Paddar Valley (Sapphire) — Discover Kishtwar</title>
 <link rel="stylesheet" href="responsive.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
   <style>
-    /* VARIABLES (Consistent with KNP) */
+   
     :root {
-      --primary: #0077b6; /* Main Blue */
-      --accent: #ffb703; /* Amber/Yellow Accent */
-      --nav-end: #023047; /* Dark Blue/Navy */
-      --soft-bg: #f8f9fa; /* Light Grey Background */
+      --primary: #0077b6; 
+      --accent: #ffb703;
+      --nav-end: #023047; 
+      --soft-bg: #f8f9fa; 
       --muted: #6c757d;
       --radius: 10px;
       --maxw: 1200px;
-      --accent-soft: #ffc733; /* Softer accent for borders */
+      --accent-soft: #ffc733; 
     }
     
-    /* Universal Reset & General Styles */
+    
     * {
         margin: 0;
         padding: 0;
@@ -70,7 +78,7 @@
     .hero img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Ensures image covers the area, fixing zoom */
+        object-fit: cover; 
         filter: brightness(75%) contrast(90%); 
         display: block;
     }
@@ -94,7 +102,7 @@
         font-weight: 300;
     }
     
-    /* DETAIL CONTAINER & BACK LINK (FIXED) */
+    
     .detail-container {
         padding-top: 20px;
         margin-top: 0;
@@ -128,7 +136,6 @@
         border-color: var(--accent);
     }
     
-    /* DETAIL PAGE ENHANCEMENTS */
     .detail-header {
       margin-bottom: 25px;
       padding-bottom: 5px;
@@ -239,48 +246,47 @@
         font-size: 0.9rem;
         color: var(--muted);
     }
-    /* NEW: Horizontal Layout for Village Images */
+    
     .village-gallery {
         display: flex;
-        justify-content: space-around; /* Spreads the two items out */
-        gap: 20px; /* Space between images */
-        margin: 25px auto; /* Centering the gallery */
+        justify-content: space-around; 
+        gap: 20px; 
+        margin: 25px auto; 
         flex-wrap: wrap; 
-        max-width: 100%; /* Use full width of container */
+        max-width: 100%; 
     }
 
     .village-gallery .inline-image {
-        /* Set to 48% to leave a small gap in the middle */
+        
         max-width: 48%; 
         width: 100%;
-        margin: 0; /* Remove vertical margin to keep them aligned */
+        margin: 0; 
         box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     }
     
     .village-gallery .inline-image img {
-        height: 250px; /* Fixed height for better vistas */
+        height: 250px; 
         object-fit: cover;
     }
-    /* NEW: Horizontal Layout for Culture Images */
+    
     .culture-gallery {
         display: flex;
-        /* changed to space-around for 3 items to look balanced */
+        
         justify-content: space-around; 
         gap: 10px; 
-        margin: 25px auto; /* Centers the whole gallery */
+        margin: 25px auto;
         flex-wrap: wrap; 
     }
 
     .culture-gallery .inline-image {
-        /* Override previous 90% width to fit 3 side-by-side */
-        /* max-width is now set inline to 30% for 3 items */
+        
         width: 100%;
         margin: 0; 
         box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
     }
     
     .culture-gallery .inline-image img {
-        height: 180px; /* Fixed height for uniformity in the gallery */
+        height: 180px; 
         object-fit: cover;
     }
     
