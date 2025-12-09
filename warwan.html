@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Warveen Valley — Discover Kishtwar</title>
+  <link rel="stylesheet" href="responsive.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
+
+  <style>
+  
+    :root {
+      --primary: #0077b6; 
+      --accent: #ffb703; 
+      --nav-end: #023047; 
+      --soft-bg: #f8f9fa; 
+      --muted: #6c757d;
+      --radius: 10px;
+      --maxw: 1200px;
+      --accent-soft: #ffc733; 
+    }
+    
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f2f6f8;
+        color: #333;
+    }
+    main {
+        padding: 20px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+    h2, h3, h4 {
+        color: var(--nav-end);
+        margin-top: 20px;
+    }
+
+    /* HEADER STYLES */
+    header {
+        background: linear-gradient(90deg, var(--primary), var(--nav-end));
+        color: white;
+        padding: 15px 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand { display: flex; align-items: center; }
+    .logo-mark { font-size: 2rem; margin-right: 10px; }
+    nav a { color: white; text-decoration: none; margin-left: 20px; }
+    nav a.active { font-weight: bold; border-bottom: 2px solid var(--accent); }
+
+
+    /* HERO STYLES */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        height: 450px; 
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+        filter: brightness(75%) contrast(90%); 
+        display: block;
+    }
+    .hero-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 40px;
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero-caption h2 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: white;
+    }
+    .hero-caption p {
+        font-size: 1.2rem;
+        margin-top: 5px;
+        font-weight: 300;
+    }
+    
+    .detail-container {
+        padding-top: 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(180deg,#fbfbfb 0%, #f2f6f8 100%);
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+        box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+    }
+    .back-link {
+        font-weight: 700; 
+        font-size: 1.1rem;
+        color: var(--nav-end); 
+        text-decoration: none; 
+        display: inline-block; 
+        margin-bottom: 25px;
+        padding: 8px 12px;
+        border: 1px solid rgba(2, 48, 71, 0.2);
+        border-radius: 6px;
+        background: #fff; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        position: static;
+        margin-top: 20px;
+    }
+    .back-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    
+    .accordion-container {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .accordion-item {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        overflow: hidden; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .accordion-title {
+        padding: 15px 20px;
+        cursor: pointer;
+        background-color: var(--soft-bg); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+    .accordion-title:hover {
+        background-color: #e9ecef;
+    }
+    .accordion-title h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--nav-end); 
+    }
+    .accordion-title::after {
+        content: '+';
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        transition: transform 0.3s ease;
+    }
+    .accordion-item.active .accordion-title::after {
+        content: '−'; 
+    }
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out; 
+        padding: 0 20px;
+    }
+    .accordion-item.active .accordion-content {
+        max-height: 3000px; 
+        padding: 15px 20px 25px 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+    .accordion-content p, .accordion-content h4 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+   
+    .gallery-inline-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+        gap: 15px; 
+        margin-top: 15px;
+        margin-bottom: 10px;
+        border-top: 1px dashed #ccc;
+        border-bottom: 1px dashed #ccc;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .gallery-inline-item {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        transition: transform 0.3s;
+    }
+    .gallery-inline-item:hover {
+        transform: scale(1.03);
+    }
+    .gallery-inline-item img {
+        width: 100%;
+        height: 120px;
+        object-fit: cover; 
+        display: block;
+    }
+    .gallery-inline-caption {
+        padding: 8px;
+        font-size: 0.85rem;
+        color: var(--nav-end);
+        text-align: center;
+        background-color: var(--soft-bg);
+        font-weight: 600;
+    }
+    
+
+    footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-mark"></div>
+        <div>
+          <h1>Discover Kishtwar</h1>
+          <small>Land of Saffron • Sapphire • Shrines</small>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="history.html">History & Culture</a>
+        <a href="places.html" class="active">Places & Villages</a>
+         <a href="gallery.html">Gallery & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero detail-hero" role="img" aria-label="Warveen Valley Hero Image">
+    <img src="warveen/heroWvn.jpg" alt="A beautiful vista of Warveen Valley.">
+    <div class="hero-caption">
+      <h2>Warveen Valley: The Emerald Gateway</h2>
+      <p>A pristine and less-explored valley known for its natural beauty and tranquility in the upper reaches of Kishtwar.</p>
+    </div>
+  </div>
+
+  <main class="detail-container">
+    <a href="places.html" class="back-link">← Back to Places & Villages</a>
+
+    <p style="font-size: 1.25rem; font-style: italic; color: var(--nav-end); margin-bottom: 30px; font-weight: 500;">
+      Warveen is a magnificent destination, offering untouched meadows, dense coniferous forests, and views of snow-capped peaks, making it a paradise for trekkers.
+    </p>
+
+    <h3 style="color: var(--primary); margin-top: 10px; margin-bottom: 10px; border-bottom: 2px solid var(--accent); padding-bottom: 5px;">
+        📸 Glimpses of Warveen Valley
+    </h3>
+    
+    <div class="gallery-inline-grid">
+        <div class="gallery-inline-item">
+            <img src="warveen/trekInwar.jpg" alt="High Altitude Trekking Route" />
+            <div class="gallery-inline-caption">Trekking </div>
+        </div>
+
+        <div class="gallery-inline-item">
+            <img src="warveen/Nomaidic.jpg" alt="Vast Warveen Meadows" />
+            <div class="gallery-inline-caption">Nomaidic Life & Shepherds</div>
+        </div>
+
+        <div class="gallery-inline-item">
+            <img src="warveen/river.jpg" alt="Nomadic Life" />
+            <div class="gallery-inline-caption">Warvan Nallah River Scene</div>
+        </div>
+
+        <div class="gallery-inline-item">
+            <img src="warveen/lusGreen.jpg" alt="Warveen Nallah river" />
+            <div class="gallery-inline-caption">Lush Green VAlley Vistas</div>
+        </div>
+    </div>
+    <h3 style="color: var(--nav-end); margin-top: 40px; margin-bottom: 20px;">
+        Explore Warveen Details
+    </h3>
+
+    <div class="accordion-container">
+        
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Introduction & Geography 🗺</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                    *Warveen Valley* serves as a natural corridor connecting the lower regions of Kishtwar with the high-altitude pastures. It is defined by the Warveen Nallah (stream) which flows through the valley floor, nourishing vast stretches of green meadows.
+                </p>
+                
+                <h4>Key Geographic Features</h4>
+                <p>
+                    The valley floor sits at an elevation of approximately 8,000 to 10,000 feet, surrounded by steep mountain slopes covered in *Deodar and Fir* trees. During late spring and summer, the meadows are carpeted with vibrant wildflowers, a sight similar to the famous alpine valleys of Kashmir.
+                </p>
+            </div>
+        </div>
+
+          <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Local Culture and Life 👥</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                    The area is sparsely populated, primarily by *nomadic Gujjar and Bakarwal communities* who use the Warveen meadows as their summer grazing grounds (Dhar). Their temporary settlements add a unique cultural element to the landscape, characterized by traditional wooden huts and the sound of bells worn by their herds of sheep and goats.
+                </p>
+                
+                <p>
+                    Due to its proximity to other major cultural centers, the spoken dialect and traditions often blend influences from both the Kashmiri and Kishtwari cultures, particularly in music and local festivals related to the harvest and changing seasons.
+                </p>
+            </div>
+        </div>
+
+          <div class="accordion-item"> 
+            <div class="accordion-title">
+                <h3>Trekking and Adventure ⛰</h3>
+            </div>
+            <div class="accordion-content">
+                  <p>
+                      Warveen Valley is highly regarded among trekkers seeking less-crowded paths. It serves as a base for several high-altitude treks leading towards:
+                  </p>
+                  <h4>Popular Trekking Routes</h4>
+                  <ul>
+                    <li>*High-Altitude Passes:* Routes leading over the mountains towards regions like Zanskar (Ladakh) for experienced trekkers.</li>
+                    <li>*Alpine Lakes:* Hidden glacial lakes nestled in the higher reaches of the surrounding peaks.</li>
+                    <li>*Forest Trails:* Gentler day hikes through the pine and fir forests near the valley entrance.</li>
+                  </ul>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Best Time to Visit ☀</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                    The valley is best visited during the summer months, from *May to September*. During this period, the snow melts, the meadows are green, and the weather is pleasant for camping and trekking.
+                </p>
+                
+                <h4>Access</h4>
+                <p>
+                    Access typically involves a motorable road up to a certain point, followed by a substantial trek. The valley remains largely inaccessible during the heavy snowfall months of winter (November to April).
+                </p>
+            </div>
+        </div>
+
+    </div> </main>
+  
+  <footer>
+    © 2025 — Discover Kishtwar · Designed with ❤ by Shagun Padha
+  </footer>
+
+  <script>
+    
+    document.querySelectorAll('.accordion-title').forEach(title => {
+      title.addEventListener('click', () => {
+        const item = title.parentNode;
+        item.classList.toggle('active');
+        
+        
+        document.querySelectorAll('.accordion-item.active').forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

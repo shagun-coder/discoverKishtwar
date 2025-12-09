@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kishtwar National Park — Discover Kishtwar</title>
+  <link rel="stylesheet" href="responsive.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
+
+  <style>
+    /* VARIABLES */
+    :root {
+      --primary: #0077b6;
+      --accent: #ffb703;
+      --nav-end: #023047;
+      --soft-bg: #f8f9fa;
+      --muted: #6c757d;
+      --radius: 10px;
+      --maxw: 1200px;
+    }
+    
+    /* Universal Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* BASIC RESET & GENERAL STYLES */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f2f6f8;
+        color: #333;
+    }
+    main {
+        padding: 20px;
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+    h2, h3, h4 {
+        color: var(--nav-end);
+        margin-top: 20px;
+    }
+    
+    /* HEADER STYLES */
+    header {
+        background: linear-gradient(90deg, var(--primary), var(--nav-end));
+        color: white;
+        padding: 15px 50px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brand { display: flex; align-items: center; }
+    .logo-mark { font-size: 2rem; margin-right: 10px; }
+    nav a { color: white; text-decoration: none; margin-left: 20px; }
+    nav a.active { font-weight: bold; border-bottom: 2px solid var(--accent); }
+
+
+    /* HERO STYLES (FIXED HEIGHT FOR LESS ZOOM) */
+    .hero {
+        position: relative;
+        overflow: hidden;
+        height: 450px; /* Increased height to show more of the image */
+    }
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Keeps image covering the area */
+        filter: brightness(75%) contrast(90%); /* Adds a subtle overlay for text readability */
+        display: block;
+    }
+    .hero-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 40px;
+        color: white;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    .hero-caption h2 {
+        font-size: 2.5rem;
+        margin: 0;
+        color: white;
+    }
+    .hero-caption p {
+        font-size: 1.2rem;
+        margin-top: 5px;
+        font-weight: 300;
+    }
+
+    /* DETAIL CONTAINER & BACK LINK (FIXED) */
+    .detail-container {
+        padding-top: 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(180deg,#fbfbfb 0%, #f2f6f8 100%);
+        border-top-left-radius: var(--radius);
+        border-top-right-radius: var(--radius);
+        box-shadow: 0 -10px 20px rgba(0,0,0,0.08);
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 50px;
+    }
+    .back-link {
+        font-weight: 700; 
+        font-size: 1.1rem;
+        color: var(--nav-end); 
+        text-decoration: none; 
+        display: inline-block; 
+        margin-bottom: 25px;
+        padding: 8px 12px;
+        border: 1px solid rgba(2, 48, 71, 0.2);
+        border-radius: 6px;
+        background: #fff; 
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        position: static;
+        margin-top: 20px;
+    }
+    .back-link:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+    }
+
+    /* ACCORDION STYLES */
+    .accordion-container {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .accordion-item {
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 12px;
+        border-radius: 8px;
+        overflow: hidden; 
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .accordion-title {
+        padding: 15px 20px;
+        cursor: pointer;
+        background-color: var(--soft-bg); 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s;
+    }
+
+    .accordion-title:hover {
+        background-color: #e9ecef;
+    }
+
+    .accordion-title h3 {
+        margin: 0;
+        font-size: 1.2rem;
+        color: var(--nav-end); 
+    }
+
+    .accordion-title::after {
+        content: '+';
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--accent);
+        transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-title::after {
+        content: '−';
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, padding 0.5s ease-out; 
+        padding: 0 20px;
+    }
+
+    .accordion-item.active .accordion-content {
+        max-height: 2000px; 
+        padding: 15px 20px 25px 20px;
+        border-top: 1px solid #e0e0e0;
+    }
+    
+    /* KEY FACTS & GALLERY STYLES */
+    .key-facts {
+        background: #e9ecef;
+        padding: 15px;
+        border-radius: 6px;
+        margin: 15px 0;
+        font-size: 0.95rem;
+    }
+    .key-facts p { margin: 5px 0; }
+    .spiritual-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .spiritual-list li {
+        margin-bottom: 15px;
+        padding-left: 20px;
+        border-left: 4px solid var(--accent);
+        padding: 10px;
+        border-radius: 4px;
+        background: #fdfdfd;
+    }
+
+    .gallery { margin-top: 40px; }
+    .photo-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover; /* Ensures small images fill the box without empty space */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* FOOTER STYLE */
+    footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-mark">K</div>
+        <div>
+          <h1>Discover Kishtwar</h1>
+          <small>Land of Saffron • Sapphire • Shrines</small>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="history.html">History & Culture</a>
+        <a href="places.html" class="active">Places & Villages</a>
+        <a href="gallery.html">Gallery & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero detail-hero" role="img" aria-label="Kishtwar National Park Hero Image">
+    <img src="kNPimg/hero.jpg" alt="Panoramic view of Kishtwar National Park mountains and forest">
+    <div class="hero-caption">
+      <h2>Kishtwar National Park: The Sanctuary of Snow</h2>
+      <p>A vast, high-altitude sanctuary known for its unique wildlife, including the elusive Snow Leopard.</p>
+    </div>
+  </div>
+
+  <main class="detail-container">
+    <a href="places.html" class="back-link">← Back to Places & Villages</a>
+
+    <div class="intro-text">
+        <P>Kishtwar National Park, also known as Kishtwar High Altitude National Park, is a protected area located in Jammu and Kashmir, India. It is one of the most significant national parks in the region and is renowned for its stunning landscapes and diverse wildlife.</P>
+        <p>Kishtwar National Park was basically founded to protect the Snow Leopards.</p><BR>
+    </div>
+    <div class="accordion-container">
+        
+        <div class="accordion-item active"> 
+            <div class="accordion-title">
+                <h3>Overview and Location 🗺</h3>
+            </div>
+            <div class="accordion-content">
+                 <H4>Brief history</H4>
+                <p>
+                   Kishtwar National Park has a relatively brief history. The main objective behind its creation was to preserve the unique biodiversity and ecological significance of the region. The park was basically made to protect the endangered species of snow leopards.
+                </p>
+                <P>The Kishtwar National Park was established in 1981 to preserve the snow leopard population.</P>
+                <H3>loaction</H3>
+                <p>
+                    Kishtwar National Park is located in the Kishtwar district of Jammu and Kashmir union territory of India. The Park is named after the district in which it is located.
+                    It is situated in the western Himalayas, specifically in the eastern part of the state.         
+                    Kishtwar National Park is bounded to the north by Rinnay river, south by Kibar Nala catchment, east by main divide of Great Himalaya and west by Marwah river.
+                    The park is situated on the catchment area of the Rinnay Nala and the Kibar Nala, tributaries of the Chenab River. The elevation ranges dramatically, from about 1,700 meters up to nearly 4,800 meters, contributing to diverse ecological zones.
+                </p>
+                <H3>Area</H3>
+                <P>Kishtwar National Park Area
+                Kishtwar National Park covers an area of approximately 2190.50 Sq Kms (845.75 square miles). Spanning across its extensive area, Kishtwar National Park exhibits diverse landscapes, ranging from dense forests to alpine meadows and snow-capped peaks.</P>
+                <P>The park encompasses various altitudes, with elevations ranging from 1,700 meters (5,600 feet) to 4,800 meters (15,700 feet) above sea level.</P>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Flora and Vegetation 🌲</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                   Kishtwar National Park is known for its rich and diverse flora, which thrives in the varied ecosystems found within the park. The park encompasses different altitudes, ranging from the lower forested areas to the high alpine meadows, supporting a wide variety of plant species. 
+                <P>Here are some notable flora found in Kishtwar National Park:</P> 
+                </p>
+                <u>(1) conferious forest</u>
+                <p>
+                    The lower elevations of the park are characterized by coniferous forests, which include species such as blue pine (Pinus wallichiana), chir pine (Pinus roxburghii), and deodar cedar (Cedrus deodara). These evergreen trees dominate the landscape and provide habitat for various wildlife species.
+                </p>
+                <u>(2) Mixed forests :</u>
+                <P>As the altitude increases, the forests transition to mixed forests, comprising a combination of broadleaf trees and conifers. Common tree species in these forests include oak (Quercus spp.), walnut (Juglans regia), rhododendron (Rhododendron spp.), and maple (Acer spp.).</P>
+                <u>(3) Alpine vegetation :</u>
+                <P>At higher elevations, the park features alpine meadows and shrublands. These areas are home to a variety of herbaceous plants, grasses, and wildflowers that bloom during the short summer season. Species such as edelweiss (Leontopodium alpinum), gentians (Gentiana spp.), and primulas (Primula spp.) can be found in these alpine zones.</P>   
+                <U>(4) Medical plants :</U>   
+                <P>Kishtwar National Park is home to several medicinal plants that have traditional uses in local communities. These include species like Aconitum heterophyllum (Atis), Picrorhiza kurroa (Kutki), Saussurea costus (Kuth), and Rheum emodi (Rhubarb), among others.</P> 
+                <U>(5) Aquatic plants :</U>
+                <P>The rivers and streams within and around the park support various aquatic plant species. These may include water lilies, lotus, and submerged plants like Vallisneria and Hydrilla.</P>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Fauna and Wildlife Sanctuary 🐆</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                   Kishtwar National Park is home to a diverse range of fauna, including several rare and endangered species. The park's varied habitats, ranging from forests to alpine meadows, support a rich array of wildlife. 
+                <U>Here are some notable fauna found in Kishtwar National Park:</U>
+                </p>
+                <h4>Key Animal Species:</h4>
+                <ul class="spiritual-list">
+                    <li><strong>Hangul (Kashmir Stag):</strong> This critically endangered species is occasionally sighted in the park, making the KNP vital for its survival.</li>
+                    <li><strong>Snow Leopard:</strong> The park provides habitat for the elusive and endangered Snow Leopard, often found in the higher rocky reaches.</li>
+                    <li><strong>Himalayan Brown Bear:</strong> Common in the higher alpine zones.</li>
+                    <li>Other species include the Musk Deer, **Tibetan Wolf, **Himalayan Tahr, **Ibex, and **Langur.</li>
+                </ul>
+                <h4>Avian Population (Birds):</h4>
+                <p>
+                    The park is a haven for high-altitude bird species such as the Himalayan Monal, **Griffon Vulture, **Bearded Vulture, and various pheasants.
+                </p>
+
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <div class="accordion-title">
+                <h3>Best Time to Visit & Access 🚌</h3>
+            </div>
+            <div class="accordion-content">
+                <p>
+                    *Best Season:* The ideal time to visit is during the *summer and autumn months (May to October)*. During the winter, the park remains inaccessible due to heavy snowfall.
+                </p>
+                <h4>Accessibility:</h4>
+                <div class="key-facts">
+                    <p>
+                        <strong>By Road:</strong> The main entry point is through Kishtwar town. From there, one can travel to the villages near the park boundary (e.g., Ikhala or Plamer), from where the trek begins.<br>
+                        <strong>Permits:</strong> Trekking and camping inside the park require prior permission from the Wildlife Warden's office in Kishtwar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <section class="gallery">
+        <h3>Photo Gallery: Wildlife and Vistas 📸</h3>
+        <p>A glimpse into the diverse ecosystem and dramatic scenery of the National Park.</p>
+
+        <div class="photo-grid">
+            <div class="gallery-item"><img src="KNPimg/Snowleopard.jpg" alt="Elusive Snow Leopard in the park"></div>
+            <div class="gallery-item"><img src="KNPimg/horseGraz.jpg" alt="Horses grazing in a beautiful mountain valley"></div>
+           
+            <div class="gallery-item"><img src="KNPimg/alpine.jpg" alt="Alpine meadow covered in purple and white flowers."></div>
+            <div class="gallery-item"><img src="kNPimg/forest.jpg" alt="Dense forest of Deodar and Pine trees"></div>
+        </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 — Discover Kishtwar · Designed with ❤ by Shagun Padha
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all accordion titles
+        const accordionTitles = document.querySelectorAll('.accordion-title');
+
+        accordionTitles.forEach(title => {
+            title.addEventListener('click', function() {
+                // Get the parent accordion item
+                const item = this.closest('.accordion-item');
+                
+                // Toggle the 'active' class on the clicked item (This handles the open/close animation)
+                item.classList.toggle('active');
+
+                // Optional: Close all other open accordions
+                accordionTitles.forEach(otherTitle => {
+                    const otherItem = otherTitle.closest('.accordion-item');
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+  </script>
+
+</body>
+</html>

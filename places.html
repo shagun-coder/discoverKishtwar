@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Places & Villages — Kishtwar District</title>
+  <link rel="stylesheet" href="responsive.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
+ 
+  <style>
+    :root{
+      --accent:#b8860b;     
+      --accent-soft:#d6b86b;
+      --nav-start:#0f2a2e;   
+      --nav-end:#023047;    
+      --card-bg:#ffffff;
+      --muted:#666;
+      --maxw:1180px;
+      --radius:14px;
+      --shadow: 0 10px 30px rgba(12,12,12,0.12);
+      --glass: rgba(255,255,255,0.06);
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,#fbfbfb 0%, #f2f6f8 100%);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* --- NAVBAR --- */
+    header{
+      background: linear-gradient(135deg,var(--nav-start), var(--nav-end));
+      padding: 14px 20px;
+      box-shadow: 0 6px 24px rgba(2,16,27,0.25);
+      position: sticky;
+      top:0;
+      z-index:50;
+    }
+    .nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;color:#fff}
+    .logo-mark{width:46px;height:46px;border-radius:8px;background:linear-gradient(180deg,var(--accent),#8b6500);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;box-shadow:0 6px 18px rgba(0,0,0,0.18)}
+    .brand h1{font-size:1.05rem;margin:0;color:#fff;letter-spacing:0.4px}
+    .brand small{display:block;font-size:0.78rem;color:rgba(255,255,255,0.8);margin-top:2px}
+
+    nav a{color:rgba(255,255,255,0.92);text-decoration:none;margin-left:14px;padding:8px 10px;border-radius:8px;font-weight:600;transition:all .18s}
+    nav a:hover{transform:translateY(-3px);background:rgba(255,255,255,0.04)}
+    nav a.active{background:var(--accent);color:#051016;box-shadow:0 8px 24px rgba(11,8,6,0.15)}
+
+    /* --- HERO --- */
+    .hero{
+      max-width:var(--maxw);
+      margin:22px auto;
+      border-radius:var(--radius);
+      overflow:hidden;
+      position:relative;
+      box-shadow:var(--shadow);
+    }
+    .hero img{width:100%;height:320px;object-fit:cover;display:block;filter:contrast(95%) brightness(85%)}
+    .hero .hero-caption{
+      position:absolute;left:24px;bottom:24px;color:#fff;
+      background:linear-gradient(90deg, rgba(0,0,0,0.45), rgba(0,0,0,0.18));
+      padding:12px 18px;border-radius:10px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+    }
+    .hero .hero-caption h2{margin:0;font-size:1.6rem;color:var(--accent-soft)}
+    .hero .hero-caption p{margin:6px 0 0;font-size:0.95rem;color:#f3efe6}
+
+    /* --- CONTENT --- */
+    .container{max-width:var(--maxw);margin:28px auto;padding:0 18px}
+    .intro{display:flex;gap:20px;align-items:flex-start;margin-bottom:18px}
+    .intro .text{flex:1}
+    .intro h3{color:var(--nav-end);margin:0 0 8px}
+    .intro p{color:var(--muted);line-height:1.6}
+
+    /* --- GRID of place cards --- */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:18px}
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 8px 26px rgba(15,20,25,0.06);
+      transition:transform .25s, box-shadow .25s;
+      border:1px solid rgba(6,10,12,0.03);
+      display:flex;flex-direction:column;
+    }
+    .card:hover{transform:translateY(-10px);box-shadow:0 18px 40px rgba(10,18,22,0.12)}
+    .card .media{height:190px;overflow:hidden}
+    .card .media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+    .card:hover .media img{transform:scale(1.05)}
+    .card .body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:10px}
+    .place-title{display:flex;align-items:center;gap:10px}
+    .badge{background:linear-gradient(180deg,var(--accent),#7f5a03);color:white;padding:6px 9px;border-radius:8px;font-weight:700;font-size:0.85rem;box-shadow:0 6px 16px rgba(125,93,27,0.18)}
+    .title-text{font-size:1.05rem;font-weight:700;color:#0e2a2f}
+    .desc{color:var(--muted);font-size:0.95rem;line-height:1.5;margin-top:6px;flex:1}
+    .card .actions{display:flex;gap:10px;align-items:center;margin-top:8px}
+    .btn{
+      display:inline-block;padding:8px 12px;border-radius:10px;font-weight:700;text-decoration:none;
+      background:transparent;border:2px solid var(--accent);color:var(--accent);transition:all .18s;font-size:0.95rem
+    }
+    .btn:hover{background:var(--accent);color:#071014;transform:translateY(-3px);box-shadow:0 8px 20px rgba(168,133,44,0.12)}
+
+    /* small rustic tag */
+    .tagline{font-size:0.85rem;color:#8a6b2c;background:linear-gradient(180deg, rgba(214,184,107,0.12), rgba(214,184,107,0.04));padding:6px 10px;border-radius:8px;display:inline-block}
+
+    /* responsive tweaks */
+    @media (max-width:760px){
+      .hero img{height:220px}
+      .badge{font-size:0.78rem}
+    }
+
+    /* footer */
+    footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="logo-mark">K</div>
+        <div>
+          <h1>Discover Kishtwar</h1>
+          <small>Land of Saffron • Sapphire • Shrines</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="history.html">History & Culture</a>
+        <a href="places.html" class="active">Places & Villages</a>
+        <a href="gallery.html">Gallery & Contact</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero" role="img" aria-label="Kishtwar landscape">
+    <img src="kishtwarvalley.jpg" alt="Kishtwar mountains and valley">
+    <div class="hero-caption">
+      <h2>Explore Kishtwar — Mountains, Valleys & Living Traditions</h2>
+      <p>Click any card to read history, culture and see photos of each place.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section class="intro">
+      <div class="text">
+        <h3>Famous places & villages to explore</h3>
+        <p>Below are the most scenic and historically important places across Kishtwar district .<P>
+      <div style="min-width:150px;align-self:center;text-align:right">
+       
+      </div>
+    </section>
+
+   
+    <section class="grid" aria-label="Places grid">
+
+      <!-- 1 Paddar -->
+      <article class="card">
+        <a class="media" href="paddar.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Gullabgarh_Paddar.jpg" alt="Paddar valley">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Paddar</span>
+            <div class="title-text">Sapphire Valley & Machail</div>
+          </div>
+          <div class="desc">Famous for its sapphire mines and the annual Machail Mata yatra — dramatic cliffs and high-altitude pastures.</div>
+          <div class="actions">
+            <a class="btn" href="paddar.html">View Details</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 Marwah -->
+      <article class="card">
+        <a class="media" href="marwah.html">
+          <img src="Marwah/marwah.jpg" alt="Marwah valley">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Marwah</span>
+            <div class="title-text">Untouched Valleys</div>
+          </div>
+          <div class="desc">A remote valley with pristine rivers, wooden houses and traditional village life — ideal for photographers and trekkers.</div>
+          <div class="actions"><a class="btn" href="marwah.html">View Details</a></div>
+        </div>
+      </article>
+
+      
+
+      
+      <article class="card">
+        <a class="media" href="kishtwarnationalpark.html">
+          <img src="KNPimg/nationalPark.jpg" alt="Kishtwar National Park">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">KNP</span>
+            <div class="title-text">Kishtwar National Park</div>
+          </div>
+          <div class="desc">A protected area with diverse Himalayan wildlife — Himalayan black bear, ibex, musk deer and many birds.</div>
+          <div class="actions"><a class="btn" href="kishtwarnationalpark.html">View Details</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="media" href="machail.html">
+          <img src="Machail/MachailMata.jpg" alt="Machail Mata">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Machail</span>
+            <div class="title-text">Machail Mata (Paddar)</div>
+          </div>
+          <div class="desc">A major pilgrimage center in Paddar — attracts devotees during the annual Machail yatra.</div>
+          <div class="actions"><a class="btn" href="machail.html">View Details</a></div>
+        </div>
+      </article>
+
+      <!-- 4 Bhandarkoot -->
+       <article class="card">
+        <a class="media" href="bhandarkoot.html">
+          <img src="Bhandarkot/bhandarkoot.jpg" alt="Bhandarkoot">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Bhandarkoot</span>
+            <div class="title-text">Bhandarkoot</div>
+          </div>
+          <div class="desc">Where two rivers meet — a spiritual spot with riverside temples and beautiful confluences.</div>
+          <div class="actions"><a class="btn" href="bhandarkoot.html">View Details</a></div>
+        </div>
+      </article>
+     
+      <article class="card">
+        <a class="media" href="kuntwara.html">
+          <img src="Kuntwara/snow1.jpg" alt="Kuntwara village">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Kuntwara</span>
+            <div class="title-text"> Kuntwara</div>
+          </div>
+          <div class="desc">A peaceful Chenab-side village linked to local legends and ancient traditions. Click to read its Mahabharata connections and see photos.</div>
+          <div class="actions"><a class="btn" href="kuntwara.html">View Details</a></div>
+        </div>
+      </article>
+
+
+      <!-- 5 Sinthan Top -->
+      <article class="card">
+        <a class="media" href="sinthan.html">
+          <img src="sinthan/synthanTop.jpg" alt="Sinthan Top">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Sinthan</span>
+            <div class="title-text">Sinthan Top</div>
+          </div>
+          <div class="desc">A scenic high pass offering panoramic views and a popular spot for road trips and winter snow views.</div>
+          <div class="actions"><a class="btn" href="sinthan.html">View Details</a></div>
+        </div>
+      </article>
+
+      <!-- 6 Dachhan Valley -->
+      <article class="card">
+        <a class="media" href="dachhan.html">
+          <img src="dachhan/dachen.jpg" alt="Dachhan valley">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Dachhan</span>
+            <div class="title-text">Dachhan Valley</div>
+          </div>
+          <div class="desc">Gateway to alpine forests and remote shrines — ideal for wildlife watching and quiet camps.</div>
+          <div class="actions"><a class="btn" href="dachhan.html">View Details</a></div>
+        </div>
+      </article>
+
+      <!-- 8 Warwan -->
+      <article class="card">
+        <a class="media" href="warwan.html">
+          <img src="warveen/warveenvalley.jpg" alt="Warwan valley">
+        </a>
+        <div class="body">
+          <div class="place-title">
+            <span class="badge">Warwan</span>
+            <div class="title-text">Warwan Valley</div>
+          </div>
+          <div class="desc">A hidden Himalayan paradise — meadows, glaciers and traditional hamlets. Great for trekkers seeking solitude.</div>
+          <div class="actions"><a class="btn" href="warwan.html">View Details</a></div>
+        </div>
+      </article>
+
+      
+     
+    </section>
+
+  </main>
+
+  <footer>
+    © 2025 — Discover Kishtwar · Designed with ❤ by Shagun Padha
+  </footer>
+
+</body>
+</html>
