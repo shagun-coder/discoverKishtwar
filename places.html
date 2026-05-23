@@ -121,6 +121,67 @@
 
     /* footer */
     footer{max-width:var(--maxw);margin:36px auto 20px;padding:18px;color:#425055;font-size:0.95rem;text-align:center}
+    /* MOBILE FIX */
+
+@media (max-width: 768px) {
+
+  header {
+    padding: 12px;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 6px;
+    font-size: 14px;
+  }
+
+  .hero {
+    height: auto;
+  }
+
+  .hero img {
+    height: 220px !important;
+    object-fit: cover;
+  }
+
+  .hero-text {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  .content,
+  main {
+    padding: 20px 15px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid,
+  .places-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
   </style>
   <link rel="stylesheet" href="responsive.css">
 </head>
