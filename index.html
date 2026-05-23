@@ -1,89 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover Kishtwar</title>
-  <link rel="stylesheet" href="style.css">
+  <!-- SEO META TAGS -->
+  
+  <title>Discover Kishtwar | Kishtwar Tourism, Kuntwara, Dachan, Warwan & Bhandarkoot</title>
+  
+  <meta name="description"
+    content="Explore Kishtwar tourism including Kuntwara, Dachan Valley, Warwan Valley, Bhandarkoot, villages, mountains and beauty of Jammu and Kashmir.">
+  
+  <meta name="keywords"
+    content="Kishtwar, Kishtwar tourism, Kuntwara, Kuntwara Kishtwar, Dachan, Dachan Valley, Warwan, Warwan Valley, Bhandarkoot, Bhandarkut, Chenab Valley, Jammu and Kashmir tourism, Kishtwar villages, Discover Kishtwar">
+  
+  <meta name="author" content="Shagun Padha">
+  
+  <!-- Open Graph -->
+  
+  <meta property="og:title" content="Discover Kishtwar">
+  
+  <meta property="og:description"
+    content="Explore the beauty of Kishtwar, Kuntwara, Dachan, Warwan and Bhandarkoot in Jammu and Kashmir.">
+  
+  <meta property="og:image" content="kishtwarvalley.jpg">
+  
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="responsive.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KCH6FX6VTR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KCH6FX6VTR');
+  </script>
+
   <style>
-    *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Verdana', sans-serif;
-  background: #f2f6f5;
-  color: #333;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-header {
-  background-color: #00695c;
-  color: #fff;
-  padding: 1rem 2rem;
-  text-align: center;
-}
+    body {
+      font-family: 'Verdana', sans-serif;
+      background: #f2f6f5;
+      color: #333;
+    }
 
-header h1 {
-  font-size: 2rem;
-}
+    header {
+      background-color: #00695c;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
 
-nav a {
-  color: #fff;
-  margin: 0 1rem;
-  text-decoration: none;
-  font-weight: 500;
-}
+    header h1 {
+      font-size: 2rem;
+    }
 
-nav a:hover, nav a.active {
-  background-color: #004d40;
-  padding: 0.3rem 0.6rem;
-  border-radius: 6px;
-}
+    nav {
+      margin-top: 10px;
+    }
 
-.hero {
-  position: relative;
-  text-align: center;
-  margin-bottom: 2rem;
-}
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.hero img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  filter: brightness(70%);
-}
+    nav a:hover,
+    nav a.active {
+      background-color: #004d40;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+    }
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-}
+    .hero {
+      position: relative;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
 
-.content {
-  max-width: 900px;
-  margin: 0 auto 2rem;
-  background-color: #ffffff;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+    .hero img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      filter: brightness(70%);
+    }
 
-footer {
-  background-color: #00695c;
-  color: #fff;
-  padding: 1.5rem;
-  text-align: center;
-  border-top: 3px solid #004d40;
-}
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      width: 90%;
+    }
+
+    .hero-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h2 {
+      margin-bottom: 1rem;
+      color: #00695c;
+    }
+
+    .content p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #00695c;
+      color: #fff;
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 3px solid #004d40;
+    }
+
+    /* =========================
+       MOBILE RESPONSIVE
+    ========================== */
+
+    @media (max-width: 768px) {
+
+      header {
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 0.4rem;
+        font-size: 0.95rem;
+      }
+
+      .hero img {
+        height: 250px;
+      }
+
+      .hero-text h2 {
+        font-size: 1.8rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+
+      .content {
+        width: 92%;
+        padding: 1.2rem;
+        margin: 1rem auto;
+      }
+
+      .content h2 {
+        font-size: 1.5rem;
+      }
+
+      .content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .hero img {
+        height: 200px;
+      }
+
+      .hero-text h2 {
+        font-size: 1.4rem;
+      }
+
+      .hero-text p {
+        font-size: 0.9rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header>
-    <h1>Discover kishtwar </h1>
+    <h1>Discover Kishtwar</h1>
+
     <nav>
       <a href="index.html">Home</a>
       <a href="history.html">History & Culture</a>
@@ -94,6 +233,7 @@ footer {
 
   <section class="hero">
     <img src="kishtwarvalley.jpg" alt="Kishtwar landscape">
+
     <div class="hero-text">
       <h2>Welcome to Kishtwar</h2>
       <p>The land of beauty, traditions, and peace in Jammu & Kashmir.</p>
@@ -101,21 +241,32 @@ footer {
   </section>
 
   <section class="content">
+
     <h2>About Kishtwar</h2>
+
     <p>
       Kishtwar is a beautiful district in Jammu & Kashmir, often called the "Land of Sapphire and Saffron".
       Known for its majestic mountains, rivers, and warm-hearted people, Kishtwar reflects the natural and cultural
       beauty of northern India.
     </p>
+
     <p>
-      The district is surrounded by lush forests, peaceful villages, and rich traditions that have been preserved for centuries.
+      The district is surrounded by lush forests, peaceful villages, and rich traditions that have been preserved for
+      centuries.
       It is home to diverse communities who live together in harmony and celebrate their shared heritage.
     </p>
+    <p>
+      Discover the hidden beauty of Kishtwar including Kuntwara,
+      Dachan Valley, Warwan Valley, Bhandarkoot, Chhatroo and Paddar,
+      famous for tourism, culture, mountains and peaceful villages in Jammu and Kashmir.
+    </p>
+
   </section>
 
   <footer>
-    <p>© 2025 Kishtwar District | Designed with ❤️ shagun padha </p>
+    <p>© 2025 Kishtwar District | Designed with ❤️ Shagun Padha</p>
   </footer>
 
 </body>
+
 </html>
